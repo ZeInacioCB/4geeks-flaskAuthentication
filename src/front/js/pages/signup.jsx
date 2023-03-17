@@ -2,14 +2,13 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const Home = () => {
+export const Signup = () => {
   const { store } = useContext(Context);
 
   return (
     <div className="text-center mt-3">
       <div className="pb-2">
-		<a className="btn btn-success m-2" href="/signup" role="button">Signup</a>
-		<a className="btn btn-primary m-2" href="/login" role="button">Login</a>
+		mother of jesus
       </div>
       <div className="alert alert-info">
         {store.message ||
