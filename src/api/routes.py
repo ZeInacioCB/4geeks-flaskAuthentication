@@ -73,3 +73,10 @@ def handle_login():
             "msg": "Incorrect password"
         }
         return response, 403
+
+@api.route('/private', methods=['GET'])
+@jwt_required()
+def protected():
+    # Access the identity of the current user with get_jwt_identity
+    user_email = get_jwt_identity()
+    return jsonify(logged_in_as=user_email), 200
