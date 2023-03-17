@@ -5,6 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+
 api = Blueprint('api', __name__)
 
 
@@ -58,8 +62,10 @@ def handle_login():
     # check if the password is correct
     if user.password == auth.get("password"):
         #create token with jwt
+        access_token = create_access_token(identity=auth.get("email"))
         response = {
-            "token": "123456789"
+            "user": user.serialize(),
+            "token": access_token
         }
         return response, 201
     else:
