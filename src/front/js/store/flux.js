@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
+			apiUrl: "https://3001-4geeksacade-reactflaskh-8vcakrild9t.ws-eu92.gitpod.io/api/",
 			demo: [
 				{
 					title: "FIRST",
