@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import { Context } from "../store/appContext";
 import "../../styles/index.css";
 
@@ -6,6 +8,8 @@ export const Signup = () => {
   const { store } = useContext(Context);
 
   const [inputVal, setInputVal] = useState({});
+
+  const navigate = useNavigate();
 
   // control the variables email and password
   const handleChange = (e) => {
@@ -35,6 +39,8 @@ export const Signup = () => {
     if (!resp) return window.alert("There's been a problem with the request");
 
     window.alert("User created");
+    navigate("/login")
+
   }
 
   return (
@@ -76,7 +82,7 @@ export const Signup = () => {
 
                                         <div className="text-center pt-1 mb-5 pb-1">
                                             <button className="btn btn-primary btn-lg gradient-custom-2 m-2" type="submit">Register</button>
-                                            <a className="btn btn-outline-danger btn-lg" href="/login" role="button">Login</a>
+                                            <Link to={'/login'}><span className="btn btn-outline-danger btn-lg">Login</span></Link>
                                         </div>
                                     </form>
 

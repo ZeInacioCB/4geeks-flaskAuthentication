@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useHref } from "react-router-dom";
+import { Link, useNavigate, useHref } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 import "../../styles/index.css";
@@ -92,7 +92,7 @@ export const Login = () => {
 
                                         <div className="d-flex align-items-center justify-content-center pb-4">
                                             <p className="mb-0 me-2">Don't have an account?</p>
-                                            <a className="btn btn-outline-danger" href="/signup" role="button">Create new</a>
+                                            <Link to={'/signup'}><span className="btn btn-outline-danger">Create new</span></Link>
                                         </div>
                                     </form>
 
